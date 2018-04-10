@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>change project name</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>JENKINS_profile</name>
+          <description>dev   ----   开发
+prd    ----   生产
+cit     ----    测试</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>dev</string>
+              <string>prd</string>
+              <string>cit</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.BooleanParameterDefinition>
+          <name>JENKINS_skipcommon</name>
+          <description>选择Yes，以下公共模块会跳过源码编译，从私服上下载固定版本
+&quot;com.ccop.rxgw&quot;  &quot;com.ccop.common&quot; &quot;com.ccop.rxgw.login&quot; &quot;com.ccop.rxgw.contact&quot; &quot;com.ccop.rxgw.appstore&quot; &quot;com.ccop.rxgw.coo&quot; &quot;com.ccop.rxgw.evaluate&quot; &quot;com.ccop.rxgw.newdisk&quot; &quot;com.ccop.component&quot; &quot;com.ccop.rxgw.rest&quot; &quot;com.ccop.friend&quot;</description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>JENKINS_branchName</name>
+          <description></description>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>JENKINS_gitlabgroup</name>
+          <description>需要自动clone代码库时，使用该参数
+gitlab中的项目所属的组</description>
+          <defaultValue>server-java</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <customWorkspace>${JENKINS_BUILDHOME}</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>bash ${JENKINS_scripthome}/prefull.sh -P ${JOB_NAME} -B ${JENKINS_branchName}</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>bash ${JENKINS_scripthome}/fullbuild.sh -P ${JOB_NAME} -B ${JENKINS_branchName}</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>bash ${JENKINS_scripthome}/uploadbuild.sh -P ${JOB_NAME} -B ${JENKINS_branchName}</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
