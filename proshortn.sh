@@ -1,6 +1,6 @@
 #! /bin/bash
 # pmap=("long_project_name:short_project_name" )
-# E.g. pmap=("RCE-server:RCE")
+# E.g. pmap=("SAMPLE-server:SAMPLE")
 pmap=""
 for als in `cat ${script_home}/lsmapping.conf | sort | uniq`; do
     if [ "x${pmap}" == "x" ]; then
@@ -9,7 +9,7 @@ for als in `cat ${script_home}/lsmapping.conf | sort | uniq`; do
         pmap="${pmap} ${als}"
     fi
 done
-#pmap=("RCE-Server:RCE")
+#pmap=("SAMPLE-server:SAMPLE")
 projectn=""
 while getopts :P: OPTION
 do

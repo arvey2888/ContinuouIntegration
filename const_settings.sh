@@ -1,4 +1,5 @@
 #/bin/bash
+export jenkinsws=`pwd`
 export script_home=$(cd "$(dirname $BASH_SOURCE)"; pwd)
 [ "x${debug}" == "x" ] && export debug=2
 
@@ -55,19 +56,26 @@ if [[ "x${JENKINS_sshkey}" != "x" && -f ${JENKINS_sshkey} ]]; then
     export sshkey=${JENKINS_sshkey}
 else
     # default settings
-    export sshkey=${HOME}/jenkins.keys/jenkins.rsa
+    export sshkey=${HOME}/.ssh/id_rsa
 fi
 export echomessage=${script_home}/scripts/script_helper/debuginfo.sh
 export curlcmd=/usr/bin/curl
 if [ "x${JENKINS_buildhome}" == "x" ]; then
     # default settings
-    export build_home=/app/ci/buildhome/${project_name}_${branch_name}
+    export build_home=${jenkinsws}/${project_name}_${branch_name}
 else
     export build_home=${JENKINS_buildhome}/${project_name}_${branch_name}
 fi
+
+if [ "x${JENKINS_fsuser}" == "x" ]; then
+    export fsuser=jenkins
+else
+    export fsuser=JENKINS_fsuser
+if
+
 if [ "x${JENKINS_dailybuilds}" == "x" ]; then
     # default settings
-    export dailybuilds=/app/ci/dailybuilds
+    export dailybuilds=/dailybuilds
 else
     export dailybuilds=${JENKINS_dailybuilds}
 fi

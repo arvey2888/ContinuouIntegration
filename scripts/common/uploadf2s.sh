@@ -31,11 +31,11 @@ if [ "x${sourcef}" != "x" ]; then
    if [ ${updatelv} == "true" ]; then
 #       [ ! -d ${JENKINS_fileserver}/${projectn}/${branchn} ] && mkdir -p ${JENKINS_fileserver}/${projectn}/${branchn}
 #       cp -rf ${sourcef} ${JENKINS_fileserver}/${projectn}/${branchn}
-       ssh -i ${sshkey} jenkins@${fileserver} "[ ! -d ${dailybuilds}/${projectn}/${branchn} ] && mkdir -p ${dailybuilds}/${projectn}/${branchn}"
-       scp -r -i ${sshkey} ${sourcef} jenkins@${fileserver}:${dailybuilds}/${projectn}/${branchn} 
+       ssh -i ${sshkey} ${fsuser}@${fileserver} "[ ! -d ${dailybuilds}/${projectn}/${branchn} ] && mkdir -p ${dailybuilds}/${projectn}/${branchn}"
+       scp -r -i ${sshkey} ${sourcef} ${fsuser}@${fileserver}:${dailybuilds}/${projectn}/${branchn} 
    else
-       ssh -i ${sshkey} jenkins@${fileserver} "[ ! -d ${dailybuilds}/${projectn}/${branchn}/${buildlevel} ] && mkdir -p ${dailybuilds}/${projectn}/${branchn}/${buildlevel}"
-       scp -r -i ${sshkey} ${sourcef} jenkins@${fileserver}:${dailybuilds}/${projectn}/${branchn}/${buildlevel}
+       ssh -i ${sshkey} ${fsuser}@${fileserver} "[ ! -d ${dailybuilds}/${projectn}/${branchn}/${buildlevel} ] && mkdir -p ${dailybuilds}/${projectn}/${branchn}/${buildlevel}"
+       scp -r -i ${sshkey} ${sourcef} ${fsuser}@${fileserver}:${dailybuilds}/${projectn}/${branchn}/${buildlevel}
 #       [ ! -d ${JENKINS_fileserver}/${projectn}/${branchn}/${buildlevel} ] && mkdir -p ${JENKINS_fileserver}/${projectn}/${branchn}/${buildlevel}
 #       cp -rf ${sourcef} ${JENKINS_fileserver}/${projectn}/${branchn}/${buildlevel}
    fi
