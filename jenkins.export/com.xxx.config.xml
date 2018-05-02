@@ -9,20 +9,18 @@
         <hudson.model.ChoiceParameterDefinition>
           <name>JENKINS_profile</name>
           <description>dev   ----   开发
-prd    ----   生产
-cit     ----    测试</description>
+prd    ----   生产</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
               <string>dev</string>
               <string>prd</string>
-              <string>cit</string>
             </a>
           </choices>
         </hudson.model.ChoiceParameterDefinition>
         <hudson.model.BooleanParameterDefinition>
           <name>JENKINS_skipcommon</name>
           <description>选择Yes，以下公共模块会跳过源码编译，从私服上下载固定版本
-&quot;com.ccop.rxgw&quot;  &quot;com.ccop.common&quot; &quot;com.ccop.rxgw.login&quot; &quot;com.ccop.rxgw.contact&quot; &quot;com.ccop.rxgw.appstore&quot; &quot;com.ccop.rxgw.coo&quot; &quot;com.ccop.rxgw.evaluate&quot; &quot;com.ccop.rxgw.newdisk&quot; &quot;com.ccop.component&quot; &quot;com.ccop.rxgw.rest&quot; &quot;com.ccop.friend&quot;</description>
+&quot;com.common&quot;</description>
           <defaultValue>false</defaultValue>
         </hudson.model.BooleanParameterDefinition>
         <hudson.model.StringParameterDefinition>
