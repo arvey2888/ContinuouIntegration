@@ -1,6 +1,8 @@
 #! /bin/bash
-#get latest buildlevel
-#assume that the file distribution file is a http server
+# get latest buildlevel
+# get latestcommit.txt or latestVersion.txt from file-server
+# will return "999999" if failed(any error)
+
 projectn=""
 branchn=""
 lt=false
@@ -23,11 +25,6 @@ do
     esac
 	
 done
-#if [[ "x${projectn}" == "x" || "x${branchn}" == "x" ]]; then
-#    #${echomessage} 99
-#    ${echomessage} 1 wrong arguments, \"-p=${projectn}\" \"-n=${branchn}\"
-#    exit 9
-#else
 if [ "${lt}" = "true" ]; then
     # echo -e "DEBUG:${curlcmd} ${fileserverurl}/${projectn}/${branchn}/latestcommit.txt $filtero"
     vr=`${curlcmd} ${fileserverurl}/${projectn}/${branchn}/latestcommit.txt 2>${discarded} | grep "^${filtero}"`

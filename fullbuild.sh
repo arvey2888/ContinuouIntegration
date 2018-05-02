@@ -54,7 +54,7 @@ source ./const_settings.sh ${pron} ${intbn}
 # get the local incompleted Buildtag
 if [ "x${buildtag}" == "x" ]; then
     # pre-full.sh will create 
-    buildtag=`${script_home}/scripts/common/getcontinuelbldtag.sh -P ${project_name} -B ${branch_name}`
+    buildtag=`${script_home}/scripts/common/getcontinuedbldtag.sh -P ${project_name} -B ${branch_name}`
     if [ "${buildtag}" == "failed" ]; then
         ${echomessage} 1 failed to get incompleted build ......
         exit 9

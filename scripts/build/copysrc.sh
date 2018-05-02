@@ -1,5 +1,7 @@
 #! /bin/bash
-#assume that the file distribution file is a http server
+# copy source code from ${lsrcrepodir} to ${build_home}
+# why copy code process? this can make sure that git pull was not broken by unexpected issue(such as temporary changes), 
+
 projectn=""
 branchn="sandbox"
 while getopts :P:B: OPTION

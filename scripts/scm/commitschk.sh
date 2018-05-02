@@ -1,5 +1,5 @@
 #!/bin/bash
-# auto merge integrate branch to build branch
+# checking whether has new committed since last successful build
 projectn=""
 branchn=""
 goldenbuild=false

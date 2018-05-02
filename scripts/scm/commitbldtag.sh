@@ -1,5 +1,7 @@
 #!/bin/bash
-# auto merge integrate branch to build branch
+# push build tag to remote repository
+# the tag created by mkbldtag.sh
+
 projectn=""
 branchn=""
 while getopts :P:B: OPTION
@@ -14,7 +16,7 @@ do
     esac
 done
 
-buildtag=$(${script_home}/scripts/common/getcontinuelbldtag.sh -P ${projectn} -B ${branchn} -L true)
+buildtag=$(${script_home}/scripts/common/getcontinuedbldtag.sh -P ${projectn} -B ${branchn} -L true)
 if [ "${buildtag}" == "failed" ]; then
     ${echomessage} 1 failed to get continued build tag
     exit 9

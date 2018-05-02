@@ -43,7 +43,7 @@ source ./const_settings.sh ${pron} ${intbn}
 
 # get Buildtag from buildhome
 if [ "x${buildtag}" == "x" ]; then
-    buildtag=`${script_home}/scripts/common/getcontinuelbldtag.sh -P ${project_name} -B ${branch_name}`
+    buildtag=`${script_home}/scripts/common/getcontinuedbldtag.sh -P ${project_name} -B ${branch_name}`
     if [ "${buildtag}" == "failed" ]; then
         ${echomessage} 1 failed to get build message from buildhome......
         exit 9

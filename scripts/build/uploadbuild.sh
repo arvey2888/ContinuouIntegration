@@ -1,5 +1,7 @@
 #! /bin/bash
-#assume that the file distribution file is a http server
+# upload ${build_home}/upload to file-server, and update the flag files(latestVersion.txt and latestcommit.txt)
+# concrete implementation in uploadf2s.sh
+
 projectn=""
 branchn="sandbox"
 buildtag=""

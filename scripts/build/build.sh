@@ -1,5 +1,12 @@
 #! /bin/bash
-#assume that the file distribution file is a http server
+# calling ${build_home}/scripts/build.sh to finish compiling and packaging tasks
+# ${script_home}/scripts/build.sh:
+#     1. change working dir
+#     2. running mvn, gradlew, or xcodebuild 
+#     3. create ${build_home}/upload
+#     4. copying the binary package into upload dir
+# ${build_home}/upload will be uploaded to file-server, and renamed as build-tag(uploadbuild.sh)
+
 projectn=""
 branchn="sandbox"
 buildtag=""

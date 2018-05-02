@@ -1,6 +1,8 @@
 #! /bin/bash
-# assume that the file distribution file is a http server
-# assume that the file distribution server is build server, use cp to finish upload tasks
+# upload a file or a folder to file-server
+# fixed dir-tree "${fileserver}:${dailybuilds}/${projectn}/${branchn}"
+
+
 projectn=""
 branchn="sandbox"
 buildlevel=""

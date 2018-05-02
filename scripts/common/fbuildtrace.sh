@@ -1,5 +1,8 @@
 #! /bin/bash
-# flush build trace
+# description: this script will append a line in build_trace.log
+# descriptions for build_trace.log:
+# this file is used to save those tasks which have been executed
+# 
 
 tagn=""
 action=""
@@ -34,7 +37,7 @@ case ${action} in
         echo -e "Checking whether has new commit ...... ${astatus} " | tee -a ${buildtrace}
     ;;
     pull)
-        echo -e "Rebasing build branch ...... ${astatus} " | tee -a ${buildtrace}
+        echo -e "Sync build branch ...... ${astatus} " | tee -a ${buildtrace}
     ;;
     copysrc)
         echo -e "Copying source code to ${build_home} ...... ${astatus} " | tee -a ${buildtrace}

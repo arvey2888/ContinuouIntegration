@@ -1,4 +1,8 @@
 #! /bin/bash
+# generate build timestamp, yyyymmdd-HHMM
+# validate the timestamp(format must be "yyyymmdd-HHMM")
+
+
 timestamp=""
 while getopts :t: OPTION
 do

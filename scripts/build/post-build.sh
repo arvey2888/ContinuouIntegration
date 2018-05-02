@@ -1,5 +1,6 @@
 #! /bin/bash
-#assume that the file distribution file is a http server
+# calling ${build_home}/scripts/post-build.sh to finish post build tasks(such as signing process, or deliver more packages, war to rpm, combine some dirs, and so on)
+
 projectn=""
 branchn="sandbox"
 buildtag=""

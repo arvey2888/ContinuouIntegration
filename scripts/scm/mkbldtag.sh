@@ -1,5 +1,7 @@
 #!/bin/bash
-# auto merge integrate branch to build branch
+# make a tag, not push to remote repository
+# the tag will be pushed to remote after build succeeded.(commitbldtag.sh)
+
 projectn=""
 branchn=""
 tagn=""
@@ -18,12 +20,6 @@ do
     esac
 done
 
-# checking on parent scripts ../scm.sh
-#if [[ "x${projectn}" == "x" || "x${branchn}" == "x" ]]; then
-#    #${echomessage} 99
-#    ${echomessage} 1 wrong arguments, \"-P ${projectn}\" \"-B ${branchn}\"
-#    exit 9
-#fi
 
 # if tagn="" create a new tag following fixed principl
 if [ "x${tagn}" == "x" ]; then

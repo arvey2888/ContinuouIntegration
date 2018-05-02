@@ -1,9 +1,7 @@
 #! /bin/bash
-# obsoleted
-# build interface script
-# step 1. call scripts/build.sh -P ${project_name} -B ${branch_name}, check the newest commit
-# step 2. call scripts/build.sh -P ${project_name} -B ${branch_name}, merge the newest commit into build_integrate branch
-# step 3. call scripts/build.sh -P ${project_name} -B ${branch_name}, create tag build-level
+# validate build tag, used to continue build process base on ${build_home}
+# build infomation saved in ${build_home}/buildreport
+
 
 project_name=""
 branch_name=""
@@ -35,7 +33,7 @@ if [[ "x${project_name}" == "x" || "x${branch_name}" == "x" ]]; then
 fi
 
 # get the local incompleted Buildtag
-lbldtag=`${script_home}/scripts/common/getcontinuelbldtag.sh -P ${project_name} -B ${branch_name}`
+lbldtag=`${script_home}/scripts/common/getcontinuedbldtag.sh -P ${project_name} -B ${branch_name}`
 if [ "${ignorebldtag}" == "false" ]; then
     if [ "x${buildtag}" != "x" ]; then
         if [ "${buildtag}" != "${lbldtag}" ]; then

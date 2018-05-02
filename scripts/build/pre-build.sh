@@ -1,5 +1,6 @@
 #! /bin/bash
-#assume that the file distribution file is a http server
+# calling ${build_home}/scripts/pre-build.sh to finish previous build tasks(such as pull third party source code, reorganizing the directory structure and so on)
+
 projectn=""
 branchn=""
 buildtag=""
