@@ -14,16 +14,12 @@ pipeline{
     stages{
     stage('test stage')
     {
-      agent
-      {
-          label 'master' 
-      }
       steps
-       {
+      {
           echo 'Hello, stage1'
           echo "Hello ${params.PERSON}"
           echo "Hello ${env.PERSON}"
-      scrip
+      	  script
           {
             def input = params.YESORNO
             if (input)
