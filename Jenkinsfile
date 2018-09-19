@@ -1,35 +1,41 @@
-pipeline {
-  agent any
-  stages {
-    stage('Phase1') {
-      parallel {
-        stage('Phase1') {
-          environment {
-            JENKINS_createTag = 'Yes'
-          }
-          steps {
-            sh '''#! /bin/bash
-ls'''
-            sh '''#! /bin/bash
-ls -la'''
-          }
-        }
-        stage('Phase1-2') {
-          steps {
-            echo 'Done'
-          }
-        }
-        stage('Phase1-3') {
-          steps {
-            sh 'echo -e "Just Try"'
-          }
-        }
-      }
+#!/usr/bin/env groovy
+pipeline{
+    agent none
+    options{
+        disableConcurrentBuilds()
+        skipDefaultCheckout()
+        timeout(time: 1, unit: 'HOURS')
+        timestamps()
     }
-    stage('Phase2') {
-      steps {
-        archiveArtifacts '*'
-      }
+    parameters{
+        string(name: 'PERSON', defaultValue: 'among中文', description: '请输入中文')
+        booleanParam(name: 'YESORNO', defaultValue: true, description: '是否发布')
     }
-  }
+    stages{
+    stage('test stage')
+    {
+      agent
+      {
+          label 'master' 
+      }
+      steps
+       {
+          echo 'Hello, stage1'
+          echo "Hello ${params.PERSON}"
+          echo "Hello ${env.PERSON}"
+      scrip
+          {
+            def input = params.YESORNO
+            if (input)
+            {
+              echo "you input is ${input},to do sth"
+            }
+            else
+            {
+              echo "you input is ${input},nothing to do"
+            }
+          }
+       }
+    }
 }
+
