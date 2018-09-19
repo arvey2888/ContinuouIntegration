@@ -10,6 +10,7 @@ pipeline{
     parameters{
         string(name: 'PERSON', defaultValue: 'among中文', description: '请输入中文')
         booleanParam(name: 'YESORNO', defaultValue: true, description: '是否发布')
+        choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
     }
     stages{
     stage('test stage')
@@ -21,6 +22,7 @@ pipeline{
           echo "Hello ${env.PERSON}"
       	  script
           {
+            echo "AAAAAA params.CHOICE"
             def input = params.YESORNO
             if (input)
             {
