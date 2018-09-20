@@ -5,7 +5,7 @@ node{
           echo 'Hello, stage1'
           echo "Hello ${params.PERSON}"
           echo "Hello ${env.PERSON}"
-          whichMaven(maven:"LOCAL_MAVEN"){
+          withMaven(maven:"LOCAL_MAVEN"){
             sh '''
             which java
             which mvn
