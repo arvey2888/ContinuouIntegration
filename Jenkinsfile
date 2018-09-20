@@ -2,8 +2,6 @@
 node{
     stage('test stage')
     {
-      steps
-      {
           echo 'Hello, stage1'
           echo "Hello ${params.PERSON}"
           echo "Hello ${env.PERSON}"
@@ -23,7 +21,6 @@ node{
             {
               echo "you input is ${input},nothing to do"
             }
-         }
        }
     }
 }
