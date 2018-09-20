@@ -22,6 +22,10 @@ pipeline{
           echo "Hello ${env.PERSON}"
       	  script
           {
+            pwd
+            which java
+            which mvn
+            which gradle
             echo "AAAAAA params.CHOICE"
             def input = params.YESORNO
             if (input)
