@@ -20,7 +20,7 @@ pipeline{
           echo 'Hello, stage1'
           echo "Hello ${params.PERSON}"
           echo "Hello ${env.PERSON}"
-            sh 'pwd'
+          script{
             sh 'which java'
             sh 'which mvn'
             sh 'which gradle'
@@ -34,6 +34,7 @@ pipeline{
             {
               echo "you input is ${input},nothing to do"
             }
+         }
        }
     }
   }
