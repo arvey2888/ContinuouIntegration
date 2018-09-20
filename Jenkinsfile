@@ -5,7 +5,7 @@ node{
           echo 'Hello, stage1'
           echo "Hello ${params.PERSON}"
           echo "Hello ${env.PERSON}"
-          script{
+          whichMaven(maven:"LOCAL_MAVEN"){
             sh '''
             which java
             which mvn
@@ -21,7 +21,7 @@ node{
             {
               echo "you input is ${input},nothing to do"
             }
-       }
+         }
     }
 }
 
